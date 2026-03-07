@@ -17990,3 +17990,10 @@ Entries:
   id: 1982
   time: '2026-03-07T11:02:56.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3188
+- author: Mrrpip
+  changes:
+    - type: Fix
+      message: Fixed the Talon-SYN lack of directional fan.
+  id: 1983
+  time: '2026-03-07T11:14:01.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3354
