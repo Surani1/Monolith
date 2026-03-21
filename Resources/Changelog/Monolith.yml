@@ -18557,3 +18557,12 @@ Entries:
   id: 2047
   time: '2026-03-21T20:03:53.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3468
+- author: Onezero0
+  changes:
+    - type: Tweak
+      message: Replaced synthalloy with plastitanium.
+    - type: Tweak
+      message: Brass wrecks have a bit more danger.
+  id: 2048
+  time: '2026-03-21T21:23:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3458
