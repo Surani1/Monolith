@@ -18626,3 +18626,20 @@ Entries:
   id: 2056
   time: '2026-03-22T13:49:25.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3522
+- author: tonotom1
+  changes:
+    - type: Add
+      message: >-
+        Trait: Hardened Lymphocytes. Costs 4 points, blocks up to 1 radiation
+        damage per tick.
+    - type: Tweak
+      message: Radiation medkits can now be found in radiation suit lockers
+    - type: Tweak
+      message: >-
+        Potassium iodide protection effect no longer sucks: it lasts 5 minutes
+        per 10u instead of 40 seconds
+    - type: Tweak
+      message: Medicine lockers now have trico and med vendors now dispense trico
+  id: 2057
+  time: '2026-03-22T14:53:08.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3500
