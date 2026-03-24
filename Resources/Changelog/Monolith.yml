@@ -18775,3 +18775,10 @@ Entries:
   id: 2071
   time: '2026-03-23T17:23:36.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3543
+- author: chuga-git
+  changes:
+    - type: Tweak
+      message: MARAUDER plasma cannon projectile speed increased by 50%. (100->150)
+  id: 2072
+  time: '2026-03-24T11:44:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3549
