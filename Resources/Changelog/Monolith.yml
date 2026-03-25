@@ -18823,3 +18823,10 @@ Entries:
   id: 2077
   time: '2026-03-24T23:41:50.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3260
+- author: Lokilife
+  changes:
+    - type: Fix
+      message: You can't lie in space with voidboots anymore
+  id: 2078
+  time: '2026-03-25T00:08:36.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3551
