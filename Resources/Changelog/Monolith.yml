@@ -18920,3 +18920,10 @@ Entries:
   id: 2088
   time: '2026-03-27T07:19:24.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3575
+- author: Redrover1760
+  changes:
+    - type: Tweak
+      message: Updates Reptilian Guidebook with recent changes.
+  id: 2089
+  time: '2026-03-27T07:20:31.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3565
