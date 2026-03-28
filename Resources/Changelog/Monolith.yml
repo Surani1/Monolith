@@ -19012,3 +19012,10 @@ Entries:
   id: 2096
   time: '2026-03-28T16:42:39.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3589
+- author: Vinny-Shick
+  changes:
+    - type: Tweak
+      message: Slightly Buffed the Vanyk
+  id: 2097
+  time: '2026-03-28T16:45:49.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3574
