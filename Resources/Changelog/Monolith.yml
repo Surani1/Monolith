@@ -19098,3 +19098,10 @@ Entries:
   id: 2104
   time: '2026-03-29T13:24:42.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3604
+- author: mikusssssss
+  changes:
+    - type: Tweak
+      message: Yara Kameroni Has Rebalanced The Gunnery Server Processing Powers
+  id: 2105
+  time: '2026-03-29T13:40:19.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3605
