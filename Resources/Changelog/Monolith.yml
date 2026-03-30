@@ -19233,3 +19233,16 @@ Entries:
   id: 2115
   time: '2026-03-30T04:38:28.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3626
+- author: burrrkeye
+  changes:
+    - type: Fix
+      message: >-
+        A very crucial bug about Thanatos Mass-Driver was fixed! They now work
+        properly as intended.
+    - type: Fix
+      message: >-
+        A very crucial bug about Charon ships was fixed! They now have the
+        proper guns!
+  id: 2116
+  time: '2026-03-30T15:42:56.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3611
