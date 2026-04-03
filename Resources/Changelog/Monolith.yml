@@ -19210,3 +19210,10 @@ Entries:
   id: 2118
   time: '2026-04-03T09:50:59.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3679
+- author: NazrinNya
+  changes:
+    - type: Tweak
+      message: Most of non-poi vend catalogs are completely free now.
+  id: 2119
+  time: '2026-04-03T11:08:39.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3195
