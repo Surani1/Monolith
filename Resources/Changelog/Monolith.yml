@@ -19824,3 +19824,14 @@ Entries:
   id: 2188
   time: '2026-04-13T18:02:20.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3710
+- author: thoughtlessuser
+  changes:
+    - type: Remove
+      message: Removed the two letoferol syringes from Polaris virology.
+    - type: Add
+      message: >-
+        Added a vault and research section to Polaris with letoferol and
+        syndicate loot as the prize.
+  id: 2189
+  time: '2026-04-13T18:13:28.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3033
