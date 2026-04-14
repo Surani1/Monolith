@@ -19860,3 +19860,12 @@ Entries:
   id: 2192
   time: '2026-04-14T16:21:16.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3788
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: >-
+        Printed lathe gear is not worth FMC/DC unless a member of the
+        corresponding faction prints it. Non-printed gear unchanged.
+  id: 2193
+  time: '2026-04-14T19:16:58.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3785
