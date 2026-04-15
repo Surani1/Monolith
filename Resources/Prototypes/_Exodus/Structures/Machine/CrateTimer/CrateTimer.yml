@@ -1,0 +1,22 @@
+- type: entity
+  id: BluespaceTimerBeacon
+  parent: BaseStructure
+  name: ent-BluespaceTimerBeacon
+  description: ent-BluespaceTimerBeacon-desc
+  components:
+  - type: Sprite
+    sprite: Structures/Power/borg_charger.rsi
+    layers:
+    - state: borgcharger-u1
+  - type: TimerCrate
+    # Настройки таймеров в секундах
+    activationDelay: 900  # 15 минут
+    cooldownDelay: 2700   # 45 минут
+    # ID того, что спавним (проверь наличие этого ID в своих прототипах)
+    cratePrototype: CrateSyndicateSurplusBundle
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Clickable # Нужно для регистрации кликов
