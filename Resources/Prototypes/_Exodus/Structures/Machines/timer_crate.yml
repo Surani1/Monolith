@@ -1,0 +1,30 @@
+- type: entity
+  id: BluespaceTimerBeacon
+  parent: BaseStructure
+  name: ent-BluespaceTimerBeacon
+  description: ent-BluespaceTimerBeacon-desc
+  components:
+  - type: Sprite
+    sprite: Structures/Power/borg_charger.rsi
+    layers:
+    - state: borgcharger-u1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TimerCrateVisuals.State:
+        enum.TimerCrateState.Idle:
+          borgcharger-u1: ""
+        enum.TimerCrateState.Activating:
+          borgcharger-u0: ""
+        enum.TimerCrateState.Cooldown:
+          borgcharger-u1: ""
+  - type: TimerCrate
+  - type: UserInterface
+    interfaces:
+      enum.TimerCrateUiKey.Key:
+        type: TimerCrateBoundUserInterface
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
