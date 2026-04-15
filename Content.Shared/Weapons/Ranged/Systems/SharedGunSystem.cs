@@ -446,7 +446,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             return;
         }
 
-        var fromCoordinates = Containers.TryGetContainingContainer(gunUid, out _) // Exodus: WTF they're firing from user
+        var fromCoordinates = gun.UseUserPosition // Exodus artillery fix
             ? Transform(user).Coordinates
             : Transform(gunUid).Coordinates;
 
