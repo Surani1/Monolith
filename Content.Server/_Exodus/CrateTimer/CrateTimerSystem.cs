@@ -76,14 +76,10 @@ public sealed class TimerCrateSystem : EntitySystem
             var curTime = _timing.CurTime;
 
             if (timer.State == TimerCrateState.Activating && curTime >= timer.NextLoopTime)
-            {
                 PlayLoopStep(uid, timer);
-            }
 
             if (curTime >= timer.NextEventTime)
-            {
                 ProcessStateTransition(uid, timer);
-            }
         }
     }
 
@@ -111,9 +107,7 @@ public sealed class TimerCrateSystem : EntitySystem
                 Loc.GetString("timer-crate-announcement-sender"));
         }
         else if (timer.State == TimerCrateState.Cooldown)
-        {
             timer.State = TimerCrateState.Idle;
-        }
 
         UpdateVisuals(uid, timer);
     }
@@ -123,8 +117,6 @@ public sealed class TimerCrateSystem : EntitySystem
         _appearance.SetData(uid, TimerCrateVisuals.State, component.State);
 
         if (TryComp<PointLightComponent>(uid, out var light))
-        {
             _light.SetEnabled(uid, component.State == TimerCrateState.Activating, light);
-        }
     }
 }

@@ -37,9 +37,6 @@ public sealed partial class TimerCrateComponent : Component
     public float LoopVolume = -5f;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid? LoopStream;
-
-    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextLoopTime;
 
     [DataField("loopDelay"), ViewVariables(VVAccess.ReadWrite)]
