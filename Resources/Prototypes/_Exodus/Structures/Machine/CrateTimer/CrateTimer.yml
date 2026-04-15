@@ -8,15 +8,32 @@
     sprite: Structures/Power/borg_charger.rsi
     layers:
     - state: borgcharger-u1
+      map: ["enum.TimerCrateVisuals.State"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State: # Полный путь
+        enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Idle:
+          enum.TimerCrateVisuals.State: { state: borgcharger-u1 }
+        enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Activating:
+          enum.TimerCrateVisuals.State: { state: borgcharger-u2 }
+        enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Cooldown:
+          enum.TimerCrateVisuals.State: { state: borgcharger-u1 }
+  - type: PointLight
+    enabled: false # Выключен по умолчанию
+    radius: 3
+    energy: 2
+    color: "#ff0000" # Красный свет
   - type: TimerCrate
-    # Настройки таймеров в секундах
-    activationDelay: 900  # 15 минут
-    cooldownDelay: 2700   # 45 минут
-    # ID того, что спавним (проверь наличие этого ID в своих прототипах)
+    activationDelay: 900
+    cooldownDelay: 2700
     cratePrototype: CrateSyndicateSurplusBundle
+    startSound: /Audio/Machines/button.ogg
+    loopSound: /Audio/Machines/terminal_processing.ogg
+    finishSound: /Audio/Effects/teleport_arrival.ogg
   - type: Transform
     anchored: true
   - type: Physics
     bodyType: Static
   - type: InteractionOutline
-  - type: Clickable # Нужно для регистрации кликов
+  - type: Clickable
