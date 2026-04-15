@@ -19887,3 +19887,10 @@ Entries:
   id: 2195
   time: '2026-04-15T10:36:56.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3795
+- author: Redrover1760
+  changes:
+    - type: Fix
+      message: Mechs can no longer be entered if they are destroyed mid-entering.
+  id: 2196
+  time: '2026-04-15T20:16:00.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3792
