@@ -1,10 +1,12 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Exodus.CrateTimer;
+namespace Content.Shared._Exodus.CrateTimer;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class TimerCrateComponent : Component
 {
     [DataField("activationDelay"), ViewVariables(VVAccess.ReadWrite)]
@@ -22,18 +24,27 @@ public sealed partial class TimerCrateComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextEventTime;
 
-    // Настройки звуков
+    // Звуки теперь без путей по умолчанию (задаются в YAML)
     [DataField("startSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier? StartSound = new SoundPathSpecifier("/Audio/Machines/button.ogg");
+    public SoundSpecifier? StartSound;
 
     [DataField("loopSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier? LoopSound = new SoundPathSpecifier("/Audio/Machines/terminal_processing.ogg");
+    public SoundSpecifier? LoopSound;
 
     [DataField("finishSound"), ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier? FinishSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    public SoundSpecifier? FinishSound;
+
+    [DataField("loopVolume"), ViewVariables(VVAccess.ReadWrite)]
+    public float LoopVolume = -5f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? LoopStream;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan NextLoopTime;
+
+    [DataField("loopDelay"), ViewVariables(VVAccess.ReadWrite)]
+    public TimeSpan LoopDelay = TimeSpan.FromSeconds(1);
 }
 
 [Serializable, NetSerializable]

@@ -1,6 +1,7 @@
 using Content.Shared.Interaction;
 using Content.Server.Chat.Systems;
 using Content.Shared.Popups;
+using Content.Shared._Exodus.CrateTimer;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -52,14 +53,9 @@ public sealed class TimerCrateSystem : EntitySystem
         component.NextEventTime = _timing.CurTime + component.ActivationDelay;
 
         UpdateVisuals(uid, component);
-
         _audio.PlayPvs(component.StartSound, uid);
 
-        if (component.LoopSound != null)
-        {
-            component.LoopStream = _audio.PlayPvs(component.LoopSound, uid,
-                AudioParams.Default.WithLoop(true).WithVolume(-4f))?.Entity;
-        }
+        component.NextLoopTime = _timing.CurTime + TimeSpan.FromSeconds(2);
 
         _chat.DispatchGlobalAnnouncement(
             Loc.GetString("timer-crate-announcement-start"),
@@ -70,23 +66,41 @@ public sealed class TimerCrateSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
         var query = EntityQueryEnumerator<TimerCrateComponent>();
         while (query.MoveNext(out var uid, out var timer))
         {
-            if (timer.State == TimerCrateState.Idle || _timing.CurTime < timer.NextEventTime)
+            if (timer.State == TimerCrateState.Idle)
                 continue;
 
-            ProcessStateTransition(uid, timer);
+            var curTime = _timing.CurTime;
+
+            if (timer.State == TimerCrateState.Activating && curTime >= timer.NextLoopTime)
+            {
+                PlayLoopStep(uid, timer);
+            }
+
+            if (curTime >= timer.NextEventTime)
+            {
+                ProcessStateTransition(uid, timer);
+            }
         }
+    }
+
+    private void PlayLoopStep(EntityUid uid, TimerCrateComponent component)
+    {
+        if (component.LoopSound == null)
+            return;
+
+        _audio.PlayPvs(component.LoopSound, uid, AudioParams.Default.WithVolume(component.LoopVolume));
+        component.NextLoopTime = _timing.CurTime + component.LoopDelay;
     }
 
     private void ProcessStateTransition(EntityUid uid, TimerCrateComponent timer)
     {
         if (timer.State == TimerCrateState.Activating)
         {
-            timer.LoopStream = _audio.Stop(timer.LoopStream);
             _audio.PlayPvs(timer.FinishSound, uid);
-
             _entManager.SpawnEntity(timer.CratePrototype, Transform(uid).Coordinates);
 
             timer.State = TimerCrateState.Cooldown;

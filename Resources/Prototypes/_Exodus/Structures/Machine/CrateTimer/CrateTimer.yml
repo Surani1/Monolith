@@ -8,29 +8,31 @@
     sprite: Structures/Power/borg_charger.rsi
     layers:
     - state: borgcharger-u1
-      map: ["enum.TimerCrateVisuals.State"]
+      map: ["enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State"]
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State: # Полный путь
+      enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State:
         enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Idle:
-          enum.TimerCrateVisuals.State: { state: borgcharger-u1 }
+          enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State: { state: borgcharger-u1 }
         enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Activating:
-          enum.TimerCrateVisuals.State: { state: borgcharger-u2 }
+          enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State: { state: borgcharger-u2 }
         enum.Content.Shared._Exodus.CrateTimer.TimerCrateState.Cooldown:
-          enum.TimerCrateVisuals.State: { state: borgcharger-u1 }
+          enum.Content.Shared._Exodus.CrateTimer.TimerCrateVisuals.State: { state: borgcharger-u1 }
   - type: PointLight
-    enabled: false # Выключен по умолчанию
+    enabled: false
     radius: 3
     energy: 2
-    color: "#ff0000" # Красный свет
+    color: "#ff0000"
   - type: TimerCrate
     activationDelay: 900
     cooldownDelay: 2700
     cratePrototype: CrateSyndicateSurplusBundle
-    startSound: /Audio/Machines/button.ogg
-    loopSound: /Audio/Machines/terminal_processing.ogg
+    startSound: /Audio/Machines/Nuke/confirm_beep.ogg
+    loopSound: /Audio/Machines/Nuke/general_beep.ogg
     finishSound: /Audio/Effects/teleport_arrival.ogg
+    loopDelay: 1
+    loopVolume: -6
   - type: Transform
     anchored: true
   - type: Physics
