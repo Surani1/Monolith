@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.CrateTimer;
 
-[RegisterComponent, NetSerializable, Serializable]
+[RegisterComponent, NetSerializable]
 public sealed partial class TimerCrateComponent : Component
 {
     [DataField] public TimeSpan ActivationDelay = TimeSpan.FromMinutes(15);
@@ -13,19 +13,18 @@ public sealed partial class TimerCrateComponent : Component
     [DataField] public string OffState = "borgcharger-u1";
     [DataField] public string OnState = "borgcharger-u0";
 
-    // Состояния переносим сюда, чтобы они синхронизировались
     public TimerCrateState State = TimerCrateState.Idle;
     public TimeSpan NextEventTime;
 }
 
-[Serializable, NetSerializable]
+[NetSerializable]
 public enum TimerCrateState : byte { Idle, Activating, Cooldown }
-[Serializable, NetSerializable]
+[NetSerializable]
 public enum TimerCrateUiKey : byte { Key }
-[Serializable, NetSerializable]
+[NetSerializable]
 public enum TimerCrateVisuals : byte { State }
 
-[Serializable, NetSerializable]
+[NetSerializable]
 public sealed class TimerCrateBoundUserInterfaceState : BoundUserInterfaceState
 {
     public TimerCrateState CurrentState;
@@ -40,5 +39,5 @@ public sealed class TimerCrateBoundUserInterfaceState : BoundUserInterfaceState
     }
 }
 
-[Serializable, NetSerializable]
+[NetSerializable]
 public sealed class TimerCrateActivateMessage : BoundUserInterfaceMessage { }

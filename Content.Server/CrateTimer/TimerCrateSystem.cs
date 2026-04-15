@@ -2,7 +2,6 @@ using Content.Shared.CrateTimer;
 using Content.Shared.Interaction;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
-using Robust.Shared.Audio.Systems;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.CrateTimer;
@@ -12,7 +11,6 @@ public sealed class TimerCrateSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
@@ -32,22 +30,13 @@ public sealed class TimerCrateSystem : EntitySystem
     {
         if (component.State != TimerCrateState.Idle) return;
 
-        // Берем или создаем аудио-компонент
-        var audio = EnsureComp<TimerCrateAudioComponent>(uid);
-
         component.State = TimerCrateState.Activating;
         component.NextEventTime = _timing.CurTime + component.ActivationDelay;
 
-        // Звук клика
-        _audio.PlayPvs(audio.ClickSound, uid);
-
-        // Зацикленный гул (Stream)
-        if (audio.Stream == null)
-        {
-            audio.Stream = _audio.PlayPvs(audio.ActiveSound, uid, AudioParams.Default.WithLoop(true))?.Entity;
-        }
-
-        _chat.DispatchGlobalAnnouncement(Loc.GetString("timer-crate-announcement-start"), Loc.GetString("timer-crate-sender"), colorOverride: Color.Cyan);
+        _chat.DispatchGlobalAnnouncement(
+            "Внимание! Запущен таймер вызова груза Синдиката.",
+            "Диспетчер",
+            colorOverride: Color.Cyan);
 
         UpdateAppearance(uid, component);
         UpdateUI(uid, component);
@@ -56,31 +45,26 @@ public sealed class TimerCrateSystem : EntitySystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        var query = EntityQueryEnumerator<TimerCrateComponent, TimerCrateAudioComponent>();
-        while (query.MoveNext(out var uid, out var timer, out var audio))
+        var query = EntityQueryEnumerator<TimerCrateComponent>();
+        while (query.MoveNext(out var uid, out var timer))
         {
-            if (timer.State == TimerCrateState.Idle || _timing.CurTime < timer.NextEventTime) continue;
+            if (timer.State == TimerCrateState.Idle || _timing.CurTime < timer.NextEventTime)
+                continue;
 
             if (timer.State == TimerCrateState.Activating)
             {
-                // Останавливаем гул
-                if (audio.Stream != null)
-                {
-                    _audio.Stop(audio.Stream);
-                    audio.Stream = null;
-                }
-
-                _audio.PlayPvs(audio.FinishSound, uid);
                 EntityManager.SpawnEntity(timer.CratePrototype, Transform(uid).Coordinates);
 
                 timer.State = TimerCrateState.Cooldown;
                 timer.NextEventTime = _timing.CurTime + timer.CooldownDelay;
-                _chat.DispatchGlobalAnnouncement(Loc.GetString("timer-crate-announcement-finish"), Loc.GetString("timer-crate-sender"));
+
+                _chat.DispatchGlobalAnnouncement("Груз доставлен. Маяк ушел на перезарядку.", "Диспетчер");
             }
             else
             {
                 timer.State = TimerCrateState.Idle;
             }
+
             UpdateAppearance(uid, timer);
             UpdateUI(uid, timer);
         }
