@@ -24,7 +24,6 @@ public sealed partial class TimerCrateComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextEventTime;
 
-    // Звуки теперь без путей по умолчанию (задаются в YAML)
     [DataField("startSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier? StartSound;
 
