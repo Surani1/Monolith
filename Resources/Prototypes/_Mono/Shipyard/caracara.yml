@@ -23,7 +23,7 @@
 - type: gameMap
   id: caracara
   mapName: 'MI Caracara'
-  mapPath: /Maps/_Exodus/Shuttles/caracara.yml # Exodus
+  mapPath: /Maps/_Exodus/Shuttles/caracara.yml #  Exodus
   minPlayers: 0
   stations:
     caracara:
