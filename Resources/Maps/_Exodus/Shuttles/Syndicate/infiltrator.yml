@@ -4,8 +4,8 @@ meta:
   engineVersion: 272.0.0
   forkId: ""
   forkVersion: ""
-  time: 04/16/2026 13:26:11
-  entityCount: 1171
+  time: 04/16/2026 15:36:22
+  entityCount: 1168
 maps: []
 grids:
 - 1
@@ -708,10 +708,10 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
       spreadQueues:
-        MetalFoam: []
         Smoke: []
         Puddle: []
         Kudzu: []
+        MetalFoam: []
     - type: GridPathfinding
     - type: ShipGridLock
       locked: False
@@ -2625,11 +2625,6 @@ entities:
     - type: Transform
       pos: -2.5,-20.5
       parent: 1
-  - uid: 320
-    components:
-    - type: Transform
-      pos: -0.5,-15.5
-      parent: 1
   - uid: 321
     components:
     - type: Transform
@@ -2930,11 +2925,6 @@ entities:
     - type: Transform
       pos: 1.5,-21.5
       parent: 1
-  - uid: 1168
-    components:
-    - type: Transform
-      pos: -3.5,-30.5
-      parent: 1
   - uid: 1169
     components:
     - type: Transform
@@ -2944,11 +2934,6 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-29.5
-      parent: 1
-  - uid: 1171
-    components:
-    - type: Transform
-      pos: -1.5,-20.5
       parent: 1
 - proto: CableHV
   entities:
