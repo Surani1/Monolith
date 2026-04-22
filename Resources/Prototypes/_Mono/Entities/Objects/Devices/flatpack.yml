@@ -60,7 +60,7 @@
   description: A flatpack used for constructing an "Shard"-designation ultralight mass driver.
   components:
   - type: Flatpack
-    entity: WeaponTurretShard
+    entity: WeaponTurretShardAnchorable # Exodus
   - type: StaticPrice
     price: 250
 
@@ -71,7 +71,7 @@
   description: A flatpack used for constructing an "Pinhole"-designation mass driver.
   components:
   - type: Flatpack
-    entity: WeaponTurretPinhole
+    entity: WeaponTurretPinholeAnchorable # Exodus
   - type: StaticPrice
     price: 500
 
