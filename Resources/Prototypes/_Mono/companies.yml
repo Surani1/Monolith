@@ -118,7 +118,7 @@
   id: CivilDefenseMilita
   name: civil-defense-milita-name # Ru-Localization
   description: civil-defense-milita-description
-  color: "#666600"
+  color: "#5e6ab3" # Exodus-Company-Recolor
 
 - type: company
   id: UllmanIndustries

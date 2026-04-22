@@ -149,12 +149,12 @@
     access: [["SyndicateAgent"], ["NuclearOperative"]]
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Remnants
     - Traffic
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Remnants
     - Traffic
   - type: CollectiveMind
@@ -308,6 +308,11 @@
     raffle:
       settings: default
     prototype: RedactedBorg
+     # Exodus-Rework-Time-Roles-Start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hrs
+     # Exodus-Rework-Time-Roles-End
   - type: GhostTakeoverAvailable
 
 - type: entity
@@ -321,9 +326,14 @@
     rules: ghost-role-information-silicon-rules
     raffle:
       settings: default
+    # Exodus-Rework-Time-Roles-Start
+    # requirements:
+    # - !type:OverallPlaytimeRequirement
+    #   time: 180000 # 50 hrs
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hrs
+      time: 108000 # 30 hrs
+     # Exodus-Rework-Time-Roles-End
   - type: GhostTakeoverAvailable
 
 # Remnant AI core
@@ -363,6 +373,11 @@
     raffle:
       settings: default
     prototype: RemnantAICore
+     # Exodus-Rework-Time-Roles-Start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hrs
+     # Exodus-Rework-Time-Roles-End
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
@@ -397,12 +412,12 @@
   components:
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Remnants
     - Traffic
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Remnants
     - Traffic
   - type: CollectiveMind
@@ -461,9 +476,14 @@
     raffle:
       settings: default
     prototype: VesselAICore
+    # Exodus-Rework-Time-Roles-Start
+    # requirements:
+    # - !type:OverallPlaytimeRequirement
+    #   time: 180000 # 50 hrs
     requirements:
     - !type:OverallPlaytimeRequirement
-      time: 180000 # 50 hrs
+      time: 108000 # 30 hrs
+     # Exodus-Rework-Time-Roles-End
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ VesselCoreNameset ]
@@ -475,7 +495,7 @@
   components:
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -483,7 +503,7 @@
     - Medical
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -531,6 +551,17 @@
     raffle:
       settings: default
     prototype: TSFMCAICore
+    # Exodus-Rework-Time-Roles-Start
+    # requirements:
+    # - !type:OverallPlaytimeRequirement
+    #   time: 180000 # 50 hrs
+    # - !type:RoleTimeRequirement
+    #   role: JobWarden
+    #   time: 54000 # 15 hours
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hrs
+    # Exodus-Rework-Time-Roles-End
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ TSFMCCoreNameset ]
@@ -551,7 +582,7 @@
   components:
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -561,7 +592,7 @@
     - Command
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -611,6 +642,11 @@
     raffle:
       settings: default
     prototype: PDVAICore
+    # Exodus-Rework-Time-Roles-Start
+    requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 108000 # 30 hrs
+     # Exodus-Rework-Time-Roles-End
   - type: GhostTakeoverAvailable
   - type: RandomMetadata
     nameSegments: [ PDVCoreNameset ]
@@ -636,7 +672,7 @@
   components:
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -645,7 +681,7 @@
     - Freelance
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -712,7 +748,7 @@
   components:
   - type: IntrinsicRadioTransmitter
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
@@ -722,7 +758,7 @@
     - Service
   - type: ActiveRadio
     channels:
-    - Common
+    # - Common # Exodus
     - Traffic
     - Science
     - Supply
