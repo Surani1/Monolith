@@ -20265,3 +20265,10 @@ Entries:
   id: 2232
   time: '2026-04-22T02:22:06.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3596
+- author: kasature90
+  changes:
+    - type: Tweak
+      message: More rad resistance for walls.
+  id: 2233
+  time: '2026-04-22T13:25:41.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3854
