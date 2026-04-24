@@ -20378,3 +20378,12 @@ Entries:
   id: 2246
   time: '2026-04-24T13:32:12.0000000+00:00'
   url: https://github.com/Monolith-Station/Monolith/pull/3864
+- author: SixplyDev
+  changes:
+    - type: Tweak
+      message: Changed Sultan's shotgun sell price!
+    - type: Fix
+      message: Fixed a really easy little effort cash flow method!
+  id: 2247
+  time: '2026-04-24T15:27:02.0000000+00:00'
+  url: https://github.com/Monolith-Station/Monolith/pull/3874
