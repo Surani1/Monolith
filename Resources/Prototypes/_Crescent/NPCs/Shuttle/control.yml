@@ -103,6 +103,10 @@
   - type: WirelessNetworkConnection
     range: 100000
   - type: DeviceList
+  #EXODUS-FIX-DRONE-CONSOLE
+  - type: Anchorable
+    flags: 0
+  #EXODUS-END
 
 - type: entity
   parent: ComputerDroneControl
