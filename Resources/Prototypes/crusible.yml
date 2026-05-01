@@ -1,0 +1,53 @@
+- type: entity
+  id: CrucibleMachineBoard
+  parent: BaseMachineCircuitboard
+  name: плата управления (Горнило)
+  components:
+  - type: MachineBoard
+    prototype: MachineExodusCrucible
+
+- type: entity
+  id: MachineExodusCrucible
+  parent: BaseMachine
+  name: промышленное горнило
+  description: Тяжелая установка для переплавки аномальных материалов.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/Anomaly/anomaly_generator.rsi
+    layers:
+    - state: base
+    - state: base
+      map: ["enum.CrucibleLayers.Layer"]
+
+  - type: ApcPowerReceiver
+    powerLoad: 150
+  - type: ExtensionReceiver
+
+  - type: Crucible
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CrucibleVisuals.Active:
+        enum.CrucibleLayers.Layer:
+          True: { state: generating }
+          False: { state: base }
+
+  - type: UserInterface
+    interfaces:
+      enum.CrucibleUiKey.Key:
+        type: CrucibleBoundUserInterface
+
+  - type: ActivatableUI
+    key: enum.CrucibleUiKey.Key
+    requirePower: true # Автоматическая блокировка UI без энергии
+
+  - type: ItemSlots
+    slots:
+      crucible_slot:
+        name: Слот для заготовки
+        whitelist:
+          components:
+            - CrucibleRecipe
+  - type: ContainerContainer
+    containers:
+      crucible_slot: !type:ContainerSlot
