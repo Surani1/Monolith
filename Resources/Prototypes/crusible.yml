@@ -8,7 +8,7 @@
 
 - type: entity
   id: MachineExodusCrucible
-  parent: BaseMachine
+  parent: BaseMachinePowered
   name: промышленное горнило
   description: Тяжелая установка для переплавки аномальных материалов.
   components:
@@ -18,10 +18,6 @@
     - state: base
     - state: base
       map: ["enum.CrucibleLayers.Layer"]
-
-  - type: ApcPowerReceiver
-    powerLoad: 150
-  - type: ExtensionReceiver
 
   - type: Crucible
   - type: Appearance
@@ -39,7 +35,7 @@
 
   - type: ActivatableUI
     key: enum.CrucibleUiKey.Key
-    requirePower: true # Автоматическая блокировка UI без энергии
+    requirePower: true
 
   - type: ItemSlots
     slots:

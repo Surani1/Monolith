@@ -1,0 +1,44 @@
+- type: constructionGraph
+  id: Bofors
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bofors
+      steps:
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+      - material: Cable
+      - tool: Cutting
+        doAfter: 1
+      - tag: BoforsCoreItem
+        name: Вставь ядро Bofors
+      - tool: Screwing
+        doAfter: 1
+      - tag: BoforsFeedItem
+        name: Подача Bofors
+      - tool: Screwing
+        doAfter: 1
+      - tag: BoforsTargetingItem
+        name: Радар Bofors
+      - tool: Screwing
+        doAfter: 1
+      - material: Steel
+        amount: 5
+      - tool: Anchoring
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+      - tag: BoforsBarrelItem
+        name: Стволы Bofors
+      - tool: Anchoring
+        doAfter: 2
+
+  - node: bofors
+    actions:
+    - !type:SpawnPrototype
+      prototype: BoforsWorkPiece
+      amount: 1
+    - !type:DeleteEntity

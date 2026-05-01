@@ -1,0 +1,112 @@
+- type: entity
+  id: BaseTurretPart
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Research/rped.rsi
+    state: icon
+  - type: MultiHandedItem
+  - type: HeldSpeedModifier
+    walkModifier: 0.2
+    sprintModifier: 0.2
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  id: TurretChassisUnfinished255
+  parent: BaseTurretPart
+  name: артиллерийский лафет
+  description: Тяжелое стационарное основание с гидравлическими компенсаторами отдачи. Позволяет устанавливать 255-мм орудие без риска деформации корпуса корабля.
+  components:
+  - type: Sprite
+    sprite: _NF/Objects/Specific/Research/rped.rsi
+    state: icon
+    color: "#555555"
+  - type: Construction
+    graph: Bofors
+    node: start
+    defaultTarget: bofors
+
+- type: entity
+  id: BoforsCoreItem
+  parent: BaseTurretPart
+  name: плазменный резонатор Бофорс
+  description: Высокотехнологичное ядро, использующее магнитное удержание для накопления энергии перед выстрелом. Необходим для питания механизмов ускорения снаряда.
+  components:
+    - type: Tag
+      tags:
+      - BoforsCoreItem
+
+- type: entity
+  id: BoforsFeedItem
+  parent: BaseTurretPart
+  name: ленточный элеватор Бофорс
+  description: Автоматизированная система вертикальной подачи крупнокалиберных снарядов. Оснащена магнитными захватами для предотвращения детонации при тряске.
+  components:
+    - type: Tag
+      tags:
+      - BoforsFeedItem
+
+- type: entity
+  id: BoforsTargetingItem
+  parent: BaseTurretPart
+  name: вычислительный комплекс Бофорс
+  description: Процессорный блок со встроенным баллистическим ИИ. Обрабатывает данные с внешних радаров для автоматической корректировки огня на сверхдальних дистанциях.
+  components:
+    - type: Tag
+      tags:
+      - BoforsTargetingItem
+
+- type: entity
+  id: BoforsBarrelItem
+  parent: BaseTurretPart
+  name: укрепленный ствол Бофорс
+  description: Огромный нарезной ствол из жаропрочного сплава. Включает в себя систему принудительного охлаждения жидким азотом после каждого выстрела.
+  components:
+    - type: Tag
+      tags:
+      - BoforsBarrelItem
+
+- type: entity
+  id: BoforsWorkPiece
+  parent: BaseTurretPart
+  name: упакованная установка Бофорс
+  description: Разобранный комплект орудия в транспортировочном каркасе. Требует промышленного тигля для финальной подгонки деталей.
+  components:
+  - type: CrucibleRecipe
+    processingTime: 15
+    resultEntity: BoforsFlatpack
+
+- type: Tag
+  id: BoforsCoreItem
+
+- type: Tag
+  id: BoforsFeedItem
+
+- type: Tag
+  id: BoforsTargetingItem
+
+- type: Tag
+  id: BoforsBarrelItem

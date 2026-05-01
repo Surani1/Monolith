@@ -1,0 +1,102 @@
+# This file contains prototypes for turret flatpacks, which are used to construct various types of autocannon turrets.
+- type: entity
+  parent: BaseFlatpack
+  id: BoforsFlatpack
+  name: Bofors flatpack
+  description: A flatpack used for constructing a Bofors.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretBofors
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: LongbowFlatpack
+  name: Longbow flatpack
+  description: A flatpack used for constructing a Longbow.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretLongbow
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: RAC30Flatpack
+  name: RAC30 flatpack
+  description: A flatpack used for constructing a RAC30.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretRAC30
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: Type35Flatpack
+  name: Type35 flatpack
+  description: A flatpack used for constructing a Type35.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretType35
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: RAC30Flatpack
+  name: RAC30 flatpack
+  description: A flatpack used for constructing a RAC30.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretRAC30
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: BaseFlatpack
+  id: AK570Flatpack
+  name: AK570 flatpack
+  description: A flatpack used for constructing a AK570.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretAK570
+  - type: StaticPrice
+    price: 500
+
+#UNIVERSAL TOO IMPOSSIBLE
+- type: entity
+  parent: BaseFlatpack
+  id: CharonReloadFlatpack
+  name: Charon Reload flatpack
+  description: A flatpack used for constructing a Charon Reload.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretCharonReload
+  - type: StaticPrice
+    price: 500
+
+#PDV ONLY
+- type: entity
+  parent: BaseFlatpack
+  id: LeviathanFlatpack
+  name: Leviathan flatpack
+  description: A flatpack used for constructing a Leviathan.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretLeviathan
+  - type: StaticPrice
+    price: 500
+
+#TSF ONLY
+- type: entity
+  parent: BaseFlatpack
+  id: HadesFlatpack
+  name: Hades flatpack
+  description: A flatpack used for constructing a Hades.
+  components:
+  - type: Flatpack
+    entity: WeaponTurretHades
+  - type: StaticPrice
+    price: 500
