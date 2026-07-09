@@ -44,6 +44,20 @@
   - type: Tag  # Mono
     tags:
     - RogueHardsuit
+  # Exodus-shield-begin
+  - type: FieldShieldProvider
+    rechargeShieldData:
+      rechargeTime: 15
+    shieldData:
+      shieldMaxCharge: 1
+      shieldSprite:
+        sprite: _Exodus/Effects/field_shield.rsi
+        state: red
+    lightData:
+      color: "#D82000"
+      radius: 1
+      energy: 4
+  # Exodus-shield-end
 
 - type: entity
   parent: [ ClothingOuterHardsuitSyndie, BaseFactionGearPDVT2 ]
@@ -137,7 +151,7 @@
     - RogueHardsuit
 
 - type: entity
-  parent: [ ClothingOuterHardsuitSyndieElite, EnergyShieldClothing ]
+  parent: [ ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitAshenElite
   name: PDV CV-53 combat tacsuit
   description: Originally based off of the CV-32 hardsuit, the CV-53 tacsuit sacrifices conventional armor plating for environmental protection, and a rechargeable hard-shield.
@@ -176,37 +190,51 @@
     tags:
     - RogueHardsuit
   # Shielding
-  - type: Blocking
-    passiveBlockModifier:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-    activeBlockModifier:
-      coefficients:
-        Blunt: 0.1
-        Slash: 0.1
-        Piercing: 0.1
-        Heat: 0.1
-      flatReductions:
-        Heat: 5
-    passiveBlockFraction: 1.0
-    activeBlockFraction: 1.0
-    isClothing: true
-  - type: Damageable
-    damageContainer: Shield
-  - type: Battery
-    maxCharge: 10
-    startingCharge: 10
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 1
-  - type: RechargeableBlocking
-    chargedRechargeRate: 0
-    dischargedRechargeRate: 0.3
-  - type: UseDelay
-    delay: 10
+  #- type: Blocking
+  #  passiveBlockModifier:
+  #    coefficients:
+  #      Blunt: 0.1
+  #      Slash: 0.1
+  #      Piercing: 0.1
+  #      Heat: 0.1
+  #  activeBlockModifier:
+  #    coefficients:
+  #      Blunt: 0.1
+  #      Slash: 0.1
+  #      Piercing: 0.1
+  #      Heat: 0.1
+  #    flatReductions:
+  #      Heat: 5
+  #  passiveBlockFraction: 1.0
+  #  activeBlockFraction: 1.0
+  #  isClothing: true
+  #- type: Damageable
+  #  damageContainer: Shield
+  #- type: Battery
+  #  maxCharge: 10
+  #  startingCharge: 10
+  #- type: BatterySelfRecharger
+  #  autoRecharge: true
+  #  autoRechargeRate: 1
+  #- type: RechargeableBlocking
+  #  chargedRechargeRate: 0
+  #  dischargedRechargeRate: 0.3
+  #- type: UseDelay
+  #  delay: 10
+  # Exodus-shield-begin
+  - type: FieldShieldProvider
+    rechargeShieldData:
+      rechargeTime: 15
+    shieldData:
+      shieldMaxCharge: 1
+      shieldSprite:
+        sprite: _Exodus/Effects/field_shield.rsi
+        state: red
+    lightData:
+      color: "#D82000"
+      radius: 1
+      energy: 4
+  # Exodus-shield-end
   - type: PointLight
     enabled: false
     radius: 1.4
